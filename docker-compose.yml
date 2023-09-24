@@ -1,0 +1,33 @@
+version: '3.4'
+    
+services:
+  
+  app3:
+    container_name: "application_api3"
+    build:
+      context: ./
+    ports:
+      - "5001:80"
+    environment:
+      RabbitMq__Host: hybridlog.io
+      IMAGE: registry.kube.io/projects/645/application_api3:v1
+      BRANCH: develop
+      SERVICE_NAMESPACE: devops
+      OS_VERSION: 2010
+      CRM_KEY: HW-512
+      OS_NAME: windows
+      SUBDOMAIN: application_api3.localhost
+      HOST_TYPE: arm64
+      PROJECT_NAME: application_api3
+      PROJECT_VERSION: v1
+      HOST_ID: localhostId
+      HOST_NAME: localhost
+      TEMPLATE_NAME: dotnetcore6
+      JIRA_PROJECT_ID: 646
+      STAGE: production
+      TEAM_NAME: database
+      SqlDbConnString: server=hybridlog.io;user id=sa;password=Pass@Word1;
+      Redis__Host: hybridlog.io
+      Redis__Port: 6379
+    extra_hosts:
+      - "hybridlog.io:192.168.30.177"
